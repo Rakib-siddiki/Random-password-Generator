@@ -43,19 +43,19 @@ function App() {
   
   return (
     <>
-      <div className="flex justify-center items-center h-screen px-4 ">
-        <div className="w-full max-w-lg mx-auto shadow-md rounded-lg  px-4 pt-4 pb-10 my-8 bg-gray-800 text-black">
+      <div className="flex justify-center items-center min-h-screen px-4">
+        <div className="w-full max-w-lg mx-auto shadow-md rounded-lg px-4 pt-4 pb-10 my-8 bg-gray-800 text-black">
           <h1 className="text-white text-center w-full font-bold text-3xl mt-5">
-            Password Genteror
+            Password Generator
           </h1>
           <div className="flex justify-center mt-5">
             <input
-              className="w-full max-w-md py-3 px-3 rounded-l-md outline-none "
+              className="w-full max-w-md py-3 px-3 rounded-l-md outline-none"
               type="text"
               value={password}
               readOnly
               placeholder="Password"
-              ref={passwordRef} // connecting to the useRef hook by used ref atribute
+              ref={passwordRef}
             />
             <button
               className="text-white bg-slate-600 px-4 rounded-r-md text-xl py-2 active:scale-105"
@@ -64,8 +64,8 @@ function App() {
               Copy
             </button>
           </div>
-          <div className="flex gap-4 font-semibold text-xl mt-3 capitalize items-center shrink-1">
-            <div>
+          <div className="flex flex-col md:flex-row gap-4 font-semibold text-xl mt-3 capitalize items-center">
+            <div className="md:w-1/3">
               <input
                 type="range"
                 value={length}
@@ -74,11 +74,11 @@ function App() {
                 onChange={(e) => setLength(e.target.value)}
                 className="cursor-pointer"
               />
-              <label htmlFor="length" className="text-white ml-2 ">
-                length : {length}
+              <label htmlFor="length" className="text-white ml-2">
+                Length: {length}
               </label>
             </div>
-            <div>
+            <div className="md:w-1/3">
               <input
                 type="checkbox"
                 defaultChecked={number}
@@ -88,7 +88,7 @@ function App() {
                 Number
               </label>
             </div>
-            <div>
+            <div className="md:w-1/3">
               <input
                 type="checkbox"
                 defaultChecked={symbol}
@@ -101,7 +101,7 @@ function App() {
           </div>
           <div className="flex justify-center mt-5">
             <button
-              className=" text-white p-3 bg-gray-500 rounded-sm active:scale-95"
+              className="text-white p-3 bg-gray-500 rounded-sm active:scale-95"
               onClick={generatePassword}
             >
               Generate Password
